@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f3ee" />
+  <meta name="description" content="Our wedding photo gallery" />
+  <title>Our Wedding Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__glow hero__glow--one"></div>
+    <div class="hero__glow hero__glow--two"></div>
+
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Wedding gallery home">
+        <span class="brand__mark">M</span>
+        <span class="brand__text">Our Wedding</span>
+      </a>
+      <a class="topbar__link" href="#gallery">View Photos</a>
+    </nav>
+
+    <div class="hero__content" id="top">
+      <p class="eyebrow">A collection of our favourite moments</p>
+      <h1>Our Wedding<br><em>in photographs.</em></h1>
+      <p class="hero__copy">
+        Relive the smiles, the little details, and the moments we never want to forget.
+      </p>
+      <a class="hero__button" href="#gallery">
+        Explore the gallery
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    <div class="hero__ornament" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="gallery-section" id="gallery">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The gallery</p>
+          <h2>Every beautiful moment.</h2>
+        </div>
+        <p id="photoCount" class="photo-count">Loading photos…</p>
+      </div>
+
+      <div id="galleryGrid" class="gallery-grid" aria-live="polite"></div>
+
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="empty-state__icon" aria-hidden="true">♡</div>
+        <h3>Your gallery is ready.</h3>
+        <p>Add wedding photos to the <code>photos</code> folder, run <code>update-gallery.ps1</code>, then refresh this page.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made with love for a day worth remembering.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Wedding photo slideshow">
+    <div class="lightbox__backdrop" data-close-lightbox></div>
+
+    <div class="lightbox__toolbar">
+      <div class="lightbox__counter" id="lightboxCounter">1 / 1</div>
+      <div class="lightbox__actions">
+        <a id="downloadButton" class="icon-button icon-button--download" href="#" download aria-label="Download current photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18v2h14v-2"/></svg>
+          <span>Download</span>
+        </a>
+        <button id="closeButton" class="icon-button" type="button" aria-label="Close slideshow">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <button id="previousButton" class="lightbox__nav lightbox__nav--previous" type="button" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+
+    <figure class="lightbox__stage">
+      <img id="lightboxImage" src="" alt="" draggable="false" />
+      <figcaption id="lightboxCaption" class="lightbox__caption"></figcaption>
+    </figure>
+
+    <button id="nextButton" class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
